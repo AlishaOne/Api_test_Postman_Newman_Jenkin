@@ -1,0 +1,372 @@
+{
+	"info": {
+		"name": "Get products",
+		"_postman_id": "83216937-b379-1b37-c3bf-ebbc00d63119",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get list products",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "679ec4d5-57c8-4d90-bd0e-6640c2e1c77e",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							"pm.test(\"Body matches url\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"/api/products/\");",
+							"});"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "50be518f-4e9f-4a23-8265-85e7bbba99ca",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "abctest123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "sysadmin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":9,\n    \"name\": \"Samsung Galaxy ss\",\n    \"price\": \"225.00\",\n    \"slug\": \"samsung-galaxy-ss\",\n    \"catalog_id\": 1,\n    \"quantity\": 50,\n    \"available\": true,\n    \"is_new\": false,\n    \"color\": \"w\",\n    \"size\": \"one size\",\n    \"owner\": \"sysadmin\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/products/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products",
+						""
+					]
+				},
+				"description": "test"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/products/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e4a7fcb9-8a35-48a8-b5da-d2635b2a89a6",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "be16860b-a5b1-454b-9c09-80de3f6280c4",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "abctest123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "sysadmin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "        {\n            \"name\": \"LG J55\",\n            \"price\": \"20.00\",\n            \"slug\": \"lg-j55\",\n            \"catalog_id\": \"http://127.0.0.1:8000/api/catalogs/2/\",\n            \"catalog\": \"http://127.0.0.1:8000/api/catalogs/2/\",\n            \"quantity\": 10,\n            \"available\": true,\n            \"is_new\": false,\n            \"color\": \"w\",\n            \"size\": \"w\",\n            \"owner\": \"sysadmin\"\n        }"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/products/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/products/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d9229361-740b-41a4-abf8-485ae31f663d",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							"pm.test(\"Body matches catalog_id\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"does not exist\");",
+							"});"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "be16860b-a5b1-454b-9c09-80de3f6280c4",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "abctest123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "sysadmin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"url\": \"http://127.0.0.1:8000/api/products/38/\",\n    \"id\": 38,\n    \"name\": \"LG J55\",\n    \"price\": \"20.00\",\n    \"slug\": \"lg-j55\",\n    \"catalog_id\": \"http://127.0.0.1:8000/api/catalogs/12/\",\n    \"catalog\": \"http://127.0.0.1:8000/api/catalogs/12/\",\n    \"quantity\": 10,\n    \"available\": true,\n    \"is_new\": false,\n    \"color\": \"w\",\n    \"size\": \"w\",\n    \"owner\": \"sysadmin\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/products/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products",
+						""
+					]
+				},
+				"description": " test slug already exists,should return bad request"
+			},
+			"response": []
+		},
+		{
+			"name": "return 201 created from data set ok",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a2fbb843-d8f4-4aab-adee-d3c339857032",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"response code is 201\"] = responseCode.code === 201;",
+							"var myname=pm.environment.get(\"myname\");",
+							"console.log(\"myname in tests is:\",myname);",
+							"if (myname&&myname.length>0){",
+							"    postman.setNextRequest(\"return 201 created from data set ok\")",
+							"}else{",
+							"     postman.setNextRequest(null)",
+							"}",
+							"",
+							"",
+							"// tests[\"body contains url\"] = responseBody.has(\"/api/products/\");",
+							"// pm.test(\"Your test quantity\", function () {",
+							"//     var jsonData = pm.response.json();",
+							"//     pm.expect(jsonData.quantity).to.eql(15);",
+							"//     });",
+							"// console.log(\"name is :\"+names);",
+							"// pm.test(\"Body matches names\", function () {",
+							"//     pm.expect(pm.response.text()).to.include(\"Samsung s\");",
+							"// });",
+							"// pm.globals.unset(\"myname\", myname);",
+							"",
+							"",
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "2806c84d-4eb5-459c-b81c-982442140fd9",
+						"type": "text/javascript",
+						"exec": [
+							"var myname=pm.environment.get(\"myname\");",
+							"console.log(\"myname is :\"+myname);",
+							"var cmyname;",
+							"if (!myname){",
+							"    myname=[\"Samsung s132\",\"Samsung s133\",\"Samsung s134\"];",
+							"}else{",
+							"    myname=pm.globals.get(\"myname\");",
+							"}",
+							"",
+							"cmyname=myname.shift();",
+							"console.log(\"c name is :\"+cmyname);",
+							"pm.environment.set(\"pname\", cmyname);",
+							"",
+							"console.log(\"myname after pop :\"+myname);",
+							"pm.globals.set(\"myname\", myname);",
+							"pm.environment.set(\"myname\", myname);",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "abctest123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "sysadmin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Digest username=\"postman\", realm=\"Users\", nonce=\"ni1LiL0O37PRRhofWdCLmwFsnEtH1lew\", uri=\"/digest-auth\", response=\"254679099562cf07df9b6f5d8d15db44\", opaque=\"\""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"{{pname}}\",\n    \"price\": \"699.89\",\n    \"slug\": \"samsung-s7\",\n    \"catalog_id\": \"http://127.0.0.1:8000/api/catalogs/1/\",\n    \"catalog\": \"http://127.0.0.1:8000/api/catalogs/1/\",\n    \"quantity\":15,\n    \"available\": true,\n    \"is_new\": true,\n    \"color\": \"blue\",\n    \"size\": \"5.7\\\" and 6.2\\\"\",\n    \"owner\": \"sysadmin\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/products/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products",
+						""
+					]
+				},
+				"description": "This endpoint sends a hashed Digest Authorization header to gain access to a valid `200 Ok` response code. In Postman, it uses the stored [global variables](https://www.getpostman.com/docs/environments#gloval-variables?source=echo-collection-app-onboarding), `echo_digest_realm` and `echo_digest_nonce`, to generate the hashed authorisation header.\n\nWithin Postman, for this request to successfully authenticate, running the previous request \"DigestAuth Request\" stores the relevant information within the global variables."
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "abctest123",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "sysadmin",
+				"type": "string"
+			}
+		]
+	}
+}
