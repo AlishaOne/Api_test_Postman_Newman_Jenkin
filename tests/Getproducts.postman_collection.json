@@ -86,6 +86,90 @@
 			"response": []
 		},
 		{
+			"name": "get list products less than 100ms",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d35c443a-b9a9-42b0-8570-22aed82850d4",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							"pm.test(\"Body matches url\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"/api/products/\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response time is less than 100ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(100);",
+							"});"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "50be518f-4e9f-4a23-8265-85e7bbba99ca",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "miketheknight33",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "abctest123",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":9,\n    \"name\": \"Samsung Galaxy ss\",\n    \"price\": \"225.00\",\n    \"slug\": \"samsung-galaxy-ss\",\n    \"catalog_id\": 1,\n    \"quantity\": 50,\n    \"available\": true,\n    \"is_new\": false,\n    \"color\": \"w\",\n    \"size\": \"one size\",\n    \"owner\": \"sysadmin\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/products/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products",
+						""
+					]
+				},
+				"description": "test"
+			},
+			"response": []
+		},
+		{
 			"name": "http://127.0.0.1:8000/api/products/",
 			"event": [
 				{
