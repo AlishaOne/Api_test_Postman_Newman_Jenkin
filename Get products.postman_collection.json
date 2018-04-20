@@ -43,13 +43,13 @@
 					"type": "basic",
 					"basic": [
 						{
-							"key": "password",
-							"value": "abctest123",
+							"key": "username",
+							"value": "miketheknight33",
 							"type": "string"
 						},
 						{
-							"key": "username",
-							"value": "sysadmin",
+							"key": "password",
+							"value": "abctest123",
 							"type": "string"
 						}
 					]
@@ -118,13 +118,13 @@
 					"type": "basic",
 					"basic": [
 						{
-							"key": "password",
-							"value": "abctest123",
+							"key": "username",
+							"value": "miketheknight33",
 							"type": "string"
 						},
 						{
-							"key": "username",
-							"value": "sysadmin",
+							"key": "password",
+							"value": "abctest123",
 							"type": "string"
 						}
 					]
@@ -198,13 +198,13 @@
 					"type": "basic",
 					"basic": [
 						{
-							"key": "password",
-							"value": "abctest123",
+							"key": "username",
+							"value": "miketheknight33",
 							"type": "string"
 						},
 						{
-							"key": "username",
-							"value": "sysadmin",
+							"key": "password",
+							"value": "abctest123",
 							"type": "string"
 						}
 					]
@@ -307,13 +307,13 @@
 					"type": "basic",
 					"basic": [
 						{
-							"key": "password",
-							"value": "abctest123",
+							"key": "username",
+							"value": "miketheknight33",
 							"type": "string"
 						},
 						{
-							"key": "username",
-							"value": "sysadmin",
+							"key": "password",
+							"value": "abctest123",
 							"type": "string"
 						}
 					]
