@@ -2,18 +2,20 @@
   "name": "apitest",
   "version": "1.0.0",
   "description": "Get products list and post a product",
-  "main": "y",
+  "directories": {
+    "test":"tests"
+  },
   "scripts": {
     "api-tests": "newman run tests/Get products.postman_collection.json --reporters cli,junit --reporter-junit-export newman.xml"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AlishaOne/apitest.git"
+    "url": "https://github.com/AlishaOne/apitest.git"
   },
   "author": "AlishaOne",
   "dependencies": {
 	"newman": "^3.9.3"
-  }
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/AlishaOne/apitest/issues"
