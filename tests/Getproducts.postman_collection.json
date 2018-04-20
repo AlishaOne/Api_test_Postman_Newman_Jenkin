@@ -86,7 +86,7 @@
 			"response": []
 		},
 		{
-			"name": "get list products less than 100ms",
+			"name": "get list products less than 150ms",
 			"event": [
 				{
 					"listen": "test",
