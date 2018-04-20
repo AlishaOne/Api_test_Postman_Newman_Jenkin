@@ -105,8 +105,8 @@
 							"});",
 							"",
 							"",
-							"pm.test(\"Response time is less than 100ms\", function () {",
-							"    pm.expect(pm.response.responseTime).to.be.below(100);",
+							"pm.test(\"Response time is less than 150ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(150);",
 							"});"
 						]
 					}
