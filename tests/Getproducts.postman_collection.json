@@ -254,7 +254,7 @@
 			"response": []
 		},
 		{
-			"name": "http://127.0.0.1:8000/api/products/",
+			"name": "post a product",
 			"event": [
 				{
 					"listen": "test",
@@ -329,7 +329,7 @@
 			"response": []
 		},
 		{
-			"name": "http://127.0.0.1:8000/api/products/",
+			"name": "post a product with a nonexistent catalog_id",
 			"event": [
 				{
 					"listen": "test",
@@ -386,7 +386,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"url\": \"http://127.0.0.1:8000/api/products/38/\",\n    \"id\": 38,\n    \"name\": \"LG J55\",\n    \"price\": \"20.00\",\n    \"slug\": \"lg-j55\",\n    \"catalog_id\": \"http://127.0.0.1:8000/api/catalogs/12/\",\n    \"catalog\": \"http://127.0.0.1:8000/api/catalogs/12/\",\n    \"quantity\": 10,\n    \"available\": true,\n    \"is_new\": false,\n    \"color\": \"w\",\n    \"size\": \"w\",\n    \"owner\": \"sysadmin\"\n}"
+					"raw": "{\n\n    \"name\": \"LG J55\",\n    \"price\": \"20.00\",\n    \"slug\": \"lg-j55\",\n    \"catalog_id\": \"http://127.0.0.1:8000/api/catalogs/12/\",\n    \"catalog\": \"http://127.0.0.1:8000/api/catalogs/12/\",\n    \"quantity\": 10,\n    \"available\": true,\n    \"is_new\": false,\n    \"color\": \"w\",\n    \"size\": \"w\",\n    \"owner\": \"sysadmin\"\n}"
 				},
 				"url": {
 					"raw": "http://127.0.0.1:8000/api/products/",
@@ -409,7 +409,7 @@
 			"response": []
 		},
 		{
-			"name": "return 201 created from data set ok",
+			"name": "post products return 201 use data set",
 			"event": [
 				{
 					"listen": "test",
