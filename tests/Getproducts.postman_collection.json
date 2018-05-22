@@ -1,8 +1,7 @@
 {
 	"info": {
-		"name": "Getproducts",
 		"_postman_id": "83216937-b379-1b37-c3bf-ebbc00d63119",
-		"description": "",
+		"name": "Getproducts",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -86,7 +85,7 @@
 			"response": []
 		},
 		{
-			"name": "get list products less than 150ms",
+			"name": "get list products less than 100ms",
 			"event": [
 				{
 					"listen": "test",
@@ -105,8 +104,8 @@
 							"});",
 							"",
 							"",
-							"pm.test(\"Response time is less than 150ms\", function () {",
-							"    pm.expect(pm.response.responseTime).to.be.below(150);",
+							"pm.test(\"Response time is less than 100ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(100);",
 							"});"
 						]
 					}
@@ -306,7 +305,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "        {\n            \"name\": \"LG J55\",\n            \"price\": \"20.00\",\n            \"slug\": \"lg-j55\",\n            \"catalog_id\": \"http://127.0.0.1:8000/api/catalogs/2/\",\n            \"catalog\": \"http://127.0.0.1:8000/api/catalogs/2/\",\n            \"quantity\": 10,\n            \"available\": true,\n            \"is_new\": false,\n            \"color\": \"w\",\n            \"size\": \"w\",\n            \"owner\": \"sysadmin\"\n        }"
+					"raw": "        {\n            \"name\": \"LG J55555888\",\n            \"price\": \"20.00\",\n            \"slug\": \"lg-j55\",\n            \"catalog_id\": \"http://127.0.0.1:8000/api/catalogs/2/\",\n            \"catalog\": \"http://127.0.0.1:8000/api/catalogs/2/\",\n            \"quantity\": 10,\n            \"available\": true,\n            \"is_new\": false,\n            \"color\": \"w\",\n            \"size\": \"w\",\n            \"owner\": \"sysadmin\"\n        }"
 				},
 				"url": {
 					"raw": "http://127.0.0.1:8000/api/products/",
@@ -323,8 +322,7 @@
 						"products",
 						""
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
