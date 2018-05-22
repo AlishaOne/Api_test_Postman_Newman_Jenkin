@@ -1,0 +1,1817 @@
+{
+	"info": {
+		"_postman_id": "d70ad5c4-1021-e2e1-2366-b77dc812439c",
+		"name": "laptopapi",
+		"description": "testing App laptop api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ping laptop.",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a5a5ef7e-2bf4-4d40-a15e-99aa2ededa78",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eec043b3-60e9-48c3-9584-ff183c8de8ed",
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"pm.environment.set(\"url\", \"http://localhost:8088/laptop-bag/webapi/api\");",
+							"pm.environment.get(\"url\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "        {\n            \"name\": \"LG J55\",\n            \"price\": \"20.00\",\n            \"slug\": \"lg-j55\",\n            \"catalog_id\": \"http://127.0.0.1:8000/api/catalogs/2/\",\n            \"catalog\": \"http://127.0.0.1:8000/api/catalogs/2/\",\n            \"quantity\": 10,\n            \"available\": true,\n            \"is_new\": false,\n            \"color\": \"w\",\n            \"size\": \"w\",\n            \"owner\": \"sysadmin\"\n        }"
+				},
+				"url": {
+					"raw": "{{url}}/ping/testing api/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"ping",
+						"testing api",
+						""
+					]
+				},
+				"description": "ping laptop if setup right"
+			},
+			"response": []
+		},
+		{
+			"name": "get laptop list all json",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e68aa41c-6de4-4ab4-86de-012884278f87",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"LaptopName correct\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    console.log(jsonData);",
+							"    pm.expect(jsonData[0].LaptopName).to.eql(\"Latitude\");",
+							"});"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "35dafb08-6a2f-4a7a-bbdb-6fe1d2d429ae",
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.get(\"url\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "welcome",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "        {\n            \"name\": \"LG J55\",\n            \"price\": \"20.00\",\n            \"slug\": \"lg-j55\",\n            \"catalog_id\": \"http://127.0.0.1:8000/api/catalogs/2/\",\n            \"catalog\": \"http://127.0.0.1:8000/api/catalogs/2/\",\n            \"quantity\": 10,\n            \"available\": true,\n            \"is_new\": false,\n            \"color\": \"w\",\n            \"size\": \"w\",\n            \"owner\": \"sysadmin\"\n        }"
+				},
+				"url": {
+					"raw": "{{url}}/all",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"all"
+					]
+				},
+				"description": "get laptop list all"
+			},
+			"response": []
+		},
+		{
+			"name": "get laptop list all json secure",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e68aa41c-6de4-4ab4-86de-012884278f87",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"LaptopName correct\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    console.log(jsonData);",
+							"    pm.expect(jsonData[0].LaptopName).to.eql(\"Latitude\");",
+							"});"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "35dafb08-6a2f-4a7a-bbdb-6fe1d2d429ae",
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.get(\"url\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "welcome",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "        {\n            \"name\": \"LG J55\",\n            \"price\": \"20.00\",\n            \"slug\": \"lg-j55\",\n            \"catalog_id\": \"http://127.0.0.1:8000/api/catalogs/2/\",\n            \"catalog\": \"http://127.0.0.1:8000/api/catalogs/2/\",\n            \"quantity\": 10,\n            \"available\": true,\n            \"is_new\": false,\n            \"color\": \"w\",\n            \"size\": \"w\",\n            \"owner\": \"sysadmin\"\n        }"
+				},
+				"url": {
+					"raw": "{{url}}/all",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"all"
+					]
+				},
+				"description": "get laptop list all"
+			},
+			"response": []
+		},
+		{
+			"name": "get laptop list all json secure Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e68aa41c-6de4-4ab4-86de-012884278f87",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"LaptopName correct\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    console.log(jsonData);",
+							"    pm.expect(jsonData[0].LaptopName).to.eql(\"Latitude\");",
+							"});"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "35dafb08-6a2f-4a7a-bbdb-6fe1d2d429ae",
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.get(\"url\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "welcome",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "        {\n            \"name\": \"LG J55\",\n            \"price\": \"20.00\",\n            \"slug\": \"lg-j55\",\n            \"catalog_id\": \"http://127.0.0.1:8000/api/catalogs/2/\",\n            \"catalog\": \"http://127.0.0.1:8000/api/catalogs/2/\",\n            \"quantity\": 10,\n            \"available\": true,\n            \"is_new\": false,\n            \"color\": \"w\",\n            \"size\": \"w\",\n            \"owner\": \"sysadmin\"\n        }"
+				},
+				"url": {
+					"raw": "http://localhost:8088/laptop-bag/webapi/secure/all/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"laptop-bag",
+						"webapi",
+						"secure",
+						"all",
+						""
+					]
+				},
+				"description": "get laptop list all"
+			},
+			"response": []
+		},
+		{
+			"name": "get laptop list all json Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e68aa41c-6de4-4ab4-86de-012884278f87",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"LaptopName correct\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    console.log(jsonData);",
+							"    pm.expect(jsonData[0].LaptopName).to.eql(\"Latitude\");",
+							"});"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "9a974aaa-3ab6-44a0-a50d-17e8564305e2",
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.get(\"purl\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "        {\n            \"name\": \"LG J55\",\n            \"price\": \"20.00\",\n            \"slug\": \"lg-j55\",\n            \"catalog_id\": \"http://127.0.0.1:8000/api/catalogs/2/\",\n            \"catalog\": \"http://127.0.0.1:8000/api/catalogs/2/\",\n            \"quantity\": 10,\n            \"available\": true,\n            \"is_new\": false,\n            \"color\": \"w\",\n            \"size\": \"w\",\n            \"owner\": \"sysadmin\"\n        }"
+				},
+				"url": {
+					"raw": "{{purl}}/all",
+					"host": [
+						"{{purl}}"
+					],
+					"path": [
+						"all"
+					]
+				},
+				"description": "get laptop list all"
+			},
+			"response": []
+		},
+		{
+			"name": "get laptop list all json with ssh",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e68aa41c-6de4-4ab4-86de-012884278f87",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"LaptopName correct\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    console.log(jsonData);",
+							"    pm.expect(jsonData[0].LaptopName).to.eql(\"Latitude\");",
+							"});"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c421d179-886f-4cc9-a2a6-defc5834531d",
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.get(\"url\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "        {\n            \"name\": \"LG J55\",\n            \"price\": \"20.00\",\n            \"slug\": \"lg-j55\",\n            \"catalog_id\": \"http://127.0.0.1:8000/api/catalogs/2/\",\n            \"catalog\": \"http://127.0.0.1:8000/api/catalogs/2/\",\n            \"quantity\": 10,\n            \"available\": true,\n            \"is_new\": false,\n            \"color\": \"w\",\n            \"size\": \"w\",\n            \"owner\": \"sysadmin\"\n        }"
+				},
+				"url": {
+					"raw": "{{url}}/all",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"all"
+					]
+				},
+				"description": "get laptop list all"
+			},
+			"response": []
+		},
+		{
+			"name": "post laptop json",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "51525c8d-a80e-4742-b20d-7d182b901093",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							"pm.test(\"BrandName correct\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.BrandName).to.include(\"Dell\");",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							"pm.test(\"Feature correct\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"1TB Hard Drive\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"LaptopName correct\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Latitude\");",
+							"});"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "817f96ae-980b-4a98-8bd6-60330393c600",
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.get(\"url\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"BrandName\": \"Dell 240\",\n        \"Features\": {\n            \"Feature\": [\n                \"8GB RAM\",\n                \"1TB Hard Drive\"\n            ]\n        },\n        \"Id\": 240,\n        \"LaptopName\": \"Latitude\"\n    }"
+				},
+				"url": {
+					"raw": "{{url}}/add/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"add",
+						""
+					]
+				},
+				"description": "post a laptop"
+			},
+			"response": []
+		},
+		{
+			"name": "post laptop json with ssl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "51525c8d-a80e-4742-b20d-7d182b901093",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							"pm.test(\"BrandName correct\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.BrandName).to.include(\"Dell\");",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							"pm.test(\"Feature correct\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"1TB Hard Drive\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"LaptopName correct\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Latitude\");",
+							"});"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "817f96ae-980b-4a98-8bd6-60330393c600",
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.get(\"url\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"BrandName\": \"Dell 240\",\n        \"Features\": {\n            \"Feature\": [\n                \"8GB RAM\",\n                \"1TB Hard Drive\"\n            ]\n        },\n        \"Id\": 240,\n        \"LaptopName\": \"Latitude\"\n    }"
+				},
+				"url": {
+					"raw": "{{url}}/add/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"add",
+						""
+					]
+				},
+				"description": "post a laptop"
+			},
+			"response": []
+		},
+		{
+			"name": "post laptop json Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "51525c8d-a80e-4742-b20d-7d182b901093",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							"pm.test(\"BrandName correct\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.BrandName).to.include(\"Dell\");",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							"pm.test(\"Feature correct\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"1TB Hard Drive\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"LaptopName correct\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Latitude\");",
+							"});"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "817f96ae-980b-4a98-8bd6-60330393c600",
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.get(\"url\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"BrandName\": \"Dell 240\",\n        \"Features\": {\n            \"Feature\": [\n                \"8GB RAM\",\n                \"1TB Hard Drive\"\n            ]\n        },\n        \"Id\": 240,\n        \"LaptopName\": \"Latitude\"\n    }"
+				},
+				"url": {
+					"raw": "{{url}}/add/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"add",
+						""
+					]
+				},
+				"description": "post a laptop"
+			},
+			"response": []
+		},
+		{
+			"name": "post laptop xml",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f9fa6eee-c481-4174-a35b-dfcd4d5dc5cb",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Feature correct\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"1TB Hard Drive\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"LaptopName correct\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Latitude\");",
+							"});"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "817f96ae-980b-4a98-8bd6-60330393c600",
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.get(\"url\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/xml"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<Laptop>\n    <BrandName>Dell</BrandName>\n    <Features>\n        <Feature>8GB RAM</Feature>\n        <Feature>1TB Hard Drive</Feature>\n    </Features>\n    <Id>133</Id>\n    <LaptopName>Latitude xml</LaptopName>\n</Laptop>"
+				},
+				"url": {
+					"raw": "{{url}}/add/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"add",
+						""
+					]
+				},
+				"description": "post a laptop"
+			},
+			"response": []
+		},
+		{
+			"name": "post laptop no context",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5428e2ec-47f0-4c98-ac2c-fe6ff4ecd977",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"",
+							"pm.test(\"ErrorMessage correct\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Bad Request\");",
+							"});",
+							"",
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "817f96ae-980b-4a98-8bd6-60330393c600",
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.get(\"url\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/add/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"add",
+						""
+					]
+				},
+				"description": "post a laptop"
+			},
+			"response": []
+		},
+		{
+			"name": "put a laptop",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "148254fc-1ac0-4814-afde-5d5cd33a913f",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"var jsonObject = xml2Json(responseBody);",
+							"",
+							"// console.log(jsonObject);",
+							"// var jsonObject2 = xml2Json(jsonObject);",
+							"// console.log(jsonObject2);",
+							"",
+							"// // pm.test(\"Name\", function () {",
+							"",
+							"// //     pm.expect(jsonObject.BrandName).to.eql(\"Dell\");",
+							"// // });",
+							"// var jsonData = JSON.parse(jsonObject);",
+							"// // var jsonData = JSON.parse(responseBody);",
+							"// console.log(jsonData);",
+							"    ",
+							"// pm.test(\"Your test name\", function () {",
+							"//     var jsonData = pm.response.json();",
+							"//     console.log(jsonData);",
+							"//     pm.expect(jsonData.value).to.eql(100);",
+							"// });"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "fbccfcf6-bd21-4ec6-81aa-48f3896ec504",
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.get(\"url\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"BrandName\": \"Dell 002update\",\r\n \"Features\": {\r\n  \"Feature\": [\"8GB RAM\",\r\n  \"1TB Hard Drive\"]\r\n },\r\n \"Id\": 133,\r\n \"LaptopName\": \"Latitude\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{url}}/update",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"update"
+					]
+				},
+				"description": "update a laptop info"
+			},
+			"response": []
+		},
+		{
+			"name": "delete a laptop by id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "148254fc-1ac0-4814-afde-5d5cd33a913f",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"var jsonObject = xml2Json(responseBody);",
+							"",
+							"// console.log(jsonObject);",
+							"// var jsonObject2 = xml2Json(jsonObject);",
+							"// console.log(jsonObject2);",
+							"",
+							"// // pm.test(\"Name\", function () {",
+							"",
+							"// //     pm.expect(jsonObject.BrandName).to.eql(\"Dell\");",
+							"// // });",
+							"// var jsonData = JSON.parse(jsonObject);",
+							"// // var jsonData = JSON.parse(responseBody);",
+							"// console.log(jsonData);",
+							"    ",
+							"// pm.test(\"Your test name\", function () {",
+							"//     var jsonData = pm.response.json();",
+							"//     console.log(jsonData);",
+							"//     pm.expect(jsonData.value).to.eql(100);",
+							"// });"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "fbccfcf6-bd21-4ec6-81aa-48f3896ec504",
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.get(\"url\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/delete/145/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"delete",
+						"145",
+						""
+					]
+				},
+				"description": "update a laptop info"
+			},
+			"response": []
+		},
+		{
+			"name": "delete a laptop by id not exist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cd77a8f0-2a2e-4049-b2f0-43fe3e6d27e8",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							"",
+							"var jsonObject = xml2Json(responseBody);",
+							"",
+							"// console.log(jsonObject);",
+							"// var jsonObject2 = xml2Json(jsonObject);",
+							"// console.log(jsonObject2);",
+							"",
+							"// // pm.test(\"Name\", function () {",
+							"",
+							"// //     pm.expect(jsonObject.BrandName).to.eql(\"Dell\");",
+							"// // });",
+							"// var jsonData = JSON.parse(jsonObject);",
+							"// // var jsonData = JSON.parse(responseBody);",
+							"// console.log(jsonData);",
+							"    ",
+							"// pm.test(\"Your test name\", function () {",
+							"//     var jsonData = pm.response.json();",
+							"//     console.log(jsonData);",
+							"//     pm.expect(jsonData.value).to.eql(100);",
+							"// });"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "fbccfcf6-bd21-4ec6-81aa-48f3896ec504",
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.get(\"url\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"BrandName\": \"Dell 002update\",\r\n \"Features\": {\r\n  \"Feature\": [\"8GB RAM\",\r\n  \"1TB Hard Drive\"]\r\n },\r\n \"Id\": 133,\r\n \"LaptopName\": \"Latitude\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{url}}/delete/152/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"delete",
+						"152",
+						""
+					]
+				},
+				"description": "update a laptop info"
+			},
+			"response": []
+		},
+		{
+			"name": "put a laptop return 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "148254fc-1ac0-4814-afde-5d5cd33a913f",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"var jsonObject = xml2Json(responseBody);",
+							"",
+							"// console.log(jsonObject);",
+							"// var jsonObject2 = xml2Json(jsonObject);",
+							"// console.log(jsonObject2);",
+							"",
+							"// // pm.test(\"Name\", function () {",
+							"",
+							"// //     pm.expect(jsonObject.BrandName).to.eql(\"Dell\");",
+							"// // });",
+							"// var jsonData = JSON.parse(jsonObject);",
+							"// // var jsonData = JSON.parse(responseBody);",
+							"// console.log(jsonData);",
+							"    ",
+							"// pm.test(\"Your test name\", function () {",
+							"//     var jsonData = pm.response.json();",
+							"//     console.log(jsonData);",
+							"//     pm.expect(jsonData.value).to.eql(100);",
+							"// });"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "fbccfcf6-bd21-4ec6-81aa-48f3896ec504",
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.get(\"url\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"BrandName\": \"Dell 002update\",\r\n \"Features\": {\r\n  \"Feature\": [\"8GB RAM\",\r\n  \"1TB Hard Drive\"]\r\n },\r\n \"Id\": 128,\r\n \"LaptopName\": \"Latitude\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{url}}/update",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"update"
+					]
+				},
+				"description": "update a laptop info"
+			},
+			"response": []
+		},
+		{
+			"name": "find laptop by id accept json",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3cebfddd-2ffe-4705-8249-2ad80eafa991",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"LaptopName correct\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    console.log(jsonData);",
+							"    pm.expect(jsonData.LaptopName).to.eql(\"Latitude\");",
+							"});"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "35dafb08-6a2f-4a7a-bbdb-6fe1d2d429ae",
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.get(\"url\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "        {\n            \"name\": \"LG J55\",\n            \"price\": \"20.00\",\n            \"slug\": \"lg-j55\",\n            \"catalog_id\": \"http://127.0.0.1:8000/api/catalogs/2/\",\n            \"catalog\": \"http://127.0.0.1:8000/api/catalogs/2/\",\n            \"quantity\": 10,\n            \"available\": true,\n            \"is_new\": false,\n            \"color\": \"w\",\n            \"size\": \"w\",\n            \"owner\": \"sysadmin\"\n        }"
+				},
+				"url": {
+					"raw": "{{url}}/find/87",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"find",
+						"87"
+					]
+				},
+				"description": "find laptop by id,get method"
+			},
+			"response": []
+		},
+		{
+			"name": "find laptop by id 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a5b4d75f-cee9-4903-a7df-3ba4258e0115",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "35dafb08-6a2f-4a7a-bbdb-6fe1d2d429ae",
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.get(\"url\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "        {\n            \"name\": \"LG J55\",\n            \"price\": \"20.00\",\n            \"slug\": \"lg-j55\",\n            \"catalog_id\": \"http://127.0.0.1:8000/api/catalogs/2/\",\n            \"catalog\": \"http://127.0.0.1:8000/api/catalogs/2/\",\n            \"quantity\": 10,\n            \"available\": true,\n            \"is_new\": false,\n            \"color\": \"w\",\n            \"size\": \"w\",\n            \"owner\": \"sysadmin\"\n        }"
+				},
+				"url": {
+					"raw": "{{url}}/find/13/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"find",
+						"13",
+						""
+					]
+				},
+				"description": "find laptop by id,get method"
+			},
+			"response": []
+		},
+		{
+			"name": "find laptop by id accept xml",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "797529ee-97da-470d-8827-fc237eba5029",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"LaptopName correct\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Latitude\");",
+							"});"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "35dafb08-6a2f-4a7a-bbdb-6fe1d2d429ae",
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.get(\"url\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/xml"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "        {\n            \"name\": \"LG J55\",\n            \"price\": \"20.00\",\n            \"slug\": \"lg-j55\",\n            \"catalog_id\": \"http://127.0.0.1:8000/api/catalogs/2/\",\n            \"catalog\": \"http://127.0.0.1:8000/api/catalogs/2/\",\n            \"quantity\": 10,\n            \"available\": true,\n            \"is_new\": false,\n            \"color\": \"w\",\n            \"size\": \"w\",\n            \"owner\": \"sysadmin\"\n        }"
+				},
+				"url": {
+					"raw": "{{url}}/find/130/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"find",
+						"130",
+						""
+					]
+				},
+				"description": "find laptop by id,get method,accept xml"
+			},
+			"response": []
+		},
+		{
+			"name": "put a laptop return 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fa80133c-2a3f-43ec-90f0-698f17542492",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "fbccfcf6-bd21-4ec6-81aa-48f3896ec504",
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.get(\"url\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"BrandName\": \"Dell 002update\",\r\n \"Features\": {\r\n  \"Feature\": [\"8GB RAM\",\r\n  \"1TB Hard Drive\"]\r\n },\r\n \"Id\": 228,\r\n \"LaptopName\": \"Latitude\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{url}}/update",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"update"
+					]
+				},
+				"description": "update a laptop info with a invalid id"
+			},
+			"response": []
+		},
+		{
+			"name": "put a laptop return 404 empty body",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fa80133c-2a3f-43ec-90f0-698f17542492",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "fbccfcf6-bd21-4ec6-81aa-48f3896ec504",
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.get(\"url\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{url}}/update",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"update"
+					]
+				},
+				"description": "update a laptop info with a invalid id"
+			},
+			"response": []
+		},
+		{
+			"name": "put a laptop return 404 invalid body",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fa80133c-2a3f-43ec-90f0-698f17542492",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "fbccfcf6-bd21-4ec6-81aa-48f3896ec504",
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.get(\"url\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"test\":\"test\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{url}}/update",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"update"
+					]
+				},
+				"description": "update a laptop info with a invalid id"
+			},
+			"response": []
+		},
+		{
+			"name": "post laptop json parameter",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a2c1f208-cc53-4413-90b4-0273b503c092",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							"pm.test(\"BrandName correct\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.BrandName).to.include(\"Dell\");",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							"pm.test(\"Feature correct\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"1TB Hard Drive\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"LaptopName correct\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Latitude\");",
+							"});",
+							"",
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "09311f57-85a8-44a8-9030-8b10d32f666e",
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.get(\"url\");",
+							"var id=Math.floor(Math.random()*1000);",
+							"console.log(id);",
+							"pm.environment.set(\"id\", id);"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"BrandName\": \"Dell 140\",\n        \"Features\": {\n            \"Feature\": [\n                \"8GB RAM\",\n                \"1TB Hard Drive\"\n            ]\n        },\n        \"Id\": \"{{id}}\",\n        \"LaptopName\": \"Latitude\"\n    }"
+				},
+				"url": {
+					"raw": "{{url}}/add/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"add",
+						""
+					]
+				},
+				"description": "post a laptop"
+			},
+			"response": []
+		},
+		{
+			"name": "find laptop by id accept json",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3cebfddd-2ffe-4705-8249-2ad80eafa991",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"LaptopName correct\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    console.log(jsonData);",
+							"    pm.expect(jsonData.LaptopName).to.eql(\"Latitude\");",
+							"});"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "980cfed4-afb5-45e4-8fad-5413f34d23db",
+						"type": "text/javascript",
+						"exec": [
+							"pm.sendRequest(\"post laptop json parameter\", function (err, response) {",
+							"    console.log(response.json());",
+							"});",
+							"",
+							"pm.environment.get(\"url\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "        {\n            \"name\": \"LG J55\",\n            \"price\": \"20.00\",\n            \"slug\": \"lg-j55\",\n            \"catalog_id\": \"http://127.0.0.1:8000/api/catalogs/2/\",\n            \"catalog\": \"http://127.0.0.1:8000/api/catalogs/2/\",\n            \"quantity\": 10,\n            \"available\": true,\n            \"is_new\": false,\n            \"color\": \"w\",\n            \"size\": \"w\",\n            \"owner\": \"sysadmin\"\n        }"
+				},
+				"url": {
+					"raw": "{{url}}/find/305/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"find",
+						"305",
+						""
+					]
+				},
+				"description": "find laptop by id,get method"
+			},
+			"response": []
+		},
+		{
+			"name": "get laptop list all json",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e68aa41c-6de4-4ab4-86de-012884278f87",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"LaptopName correct\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    console.log(jsonData);",
+							"    pm.expect(jsonData[0].LaptopName).to.eql(\"Latitude\");",
+							"});"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "35dafb08-6a2f-4a7a-bbdb-6fe1d2d429ae",
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.get(\"url\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "welcome",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "        {\n            \"name\": \"LG J55\",\n            \"price\": \"20.00\",\n            \"slug\": \"lg-j55\",\n            \"catalog_id\": \"http://127.0.0.1:8000/api/catalogs/2/\",\n            \"catalog\": \"http://127.0.0.1:8000/api/catalogs/2/\",\n            \"quantity\": 10,\n            \"available\": true,\n            \"is_new\": false,\n            \"color\": \"w\",\n            \"size\": \"w\",\n            \"owner\": \"sysadmin\"\n        }"
+				},
+				"url": {
+					"raw": "{{url}}/all",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"all"
+					]
+				},
+				"description": "get laptop list all"
+			},
+			"response": []
+		},
+		{
+			"name": "put a laptop",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "148254fc-1ac0-4814-afde-5d5cd33a913f",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"var jsonObject = xml2Json(responseBody);",
+							"",
+							"// console.log(jsonObject);",
+							"// var jsonObject2 = xml2Json(jsonObject);",
+							"// console.log(jsonObject2);",
+							"",
+							"// // pm.test(\"Name\", function () {",
+							"",
+							"// //     pm.expect(jsonObject.BrandName).to.eql(\"Dell\");",
+							"// // });",
+							"// var jsonData = JSON.parse(jsonObject);",
+							"// // var jsonData = JSON.parse(responseBody);",
+							"// console.log(jsonData);",
+							"    ",
+							"// pm.test(\"Your test name\", function () {",
+							"//     var jsonData = pm.response.json();",
+							"//     console.log(jsonData);",
+							"//     pm.expect(jsonData.value).to.eql(100);",
+							"// });"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "fbccfcf6-bd21-4ec6-81aa-48f3896ec504",
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.get(\"url\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"BrandName\": \"Dell 002update\",\r\n \"Features\": {\r\n  \"Feature\": [\"8GB RAM\",\r\n  \"1TB Hard Drive\"]\r\n },\r\n \"Id\": 384,\r\n \"LaptopName\": \"Latitude\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{url}}/update",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"update"
+					]
+				},
+				"description": "update a laptop info"
+			},
+			"response": []
+		}
+	]
+}
