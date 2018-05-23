@@ -1,2 +1,4 @@
-# apitest
-Api test,run TestCase use newman in Jenkins
+
+
+## Api test
+### Create TestCase in Postman and run TestCase use Newman in Jenkins
