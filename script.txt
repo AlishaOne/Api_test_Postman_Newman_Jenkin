@@ -5,7 +5,6 @@ node{
         sh 'npm install'
         try{
             sh 'npm run api-tests'
-            sh 'npm run api-tests-laptop'
             currentBuild.result = 'SUCCESS'
         }catch(Exception ex){
             currentBuild.result = 'FAILURE'
