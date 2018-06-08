@@ -6,4 +6,4 @@
 ### Pipeline script----->script.txt
 
 ## Postman Testcases screenshot
-![Alt text](https://github.com/AlishaOne/onestop4you2/blob/master/onestop4you.jpg?raw=true "mainstore")
+![Alt text](https://github.com/AlishaOne/Api_test_Postman_Newman_Jenkin/blob/master/screenshots/Testcases.jpg)
